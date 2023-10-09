@@ -1,7 +1,7 @@
 import { formatFiles, generateFiles, installPackagesTask, Tree } from '@nx/devkit'
+import { applicationCleanup } from '@parago/starter-common'
 import { join } from 'path'
 import {
-  applicationCleanup,
   applicationDependencies,
   applicationGenerateProject,
   applicationSubstitutions,

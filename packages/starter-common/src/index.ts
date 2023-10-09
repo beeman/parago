@@ -1,1 +1,5 @@
+export * from './util/application-cleanup'
+export * from './util/get-gecursive-file-contents'
 export * from './util/package-versions'
+export * from './util/run-command'
+export * from './util/update-ignore-entires'

@@ -4,7 +4,8 @@ import {
   WalletProvider,
 } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-solflare';
+import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-unsafe-burner';
 import { Cluster, clusterApiUrl } from '@solana/web3.js';
 import {
   createContext,
@@ -29,8 +30,11 @@ const Context = createContext<SolanaProviderContext>(
 
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const [cluster, setCluster] = useState<Cluster>('devnet');
-  const endpoint = useMemo(() => clusterApiUrl(cluster), [cluster]);
-  const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter()], [cluster]);
+    const endpoint = useMemo(() => clusterApiUrl(cluster), [cluster]);
+    const wallets = useMemo(
+      () => [new UnsafeBurnerWalletAdapter(), new SolflareWalletAdapter()],
+      [cluster]
+    );
 
   const onError = useCallback((error: WalletError) => {
     console.error(error);

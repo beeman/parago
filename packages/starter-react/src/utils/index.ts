@@ -1,4 +1,3 @@
-export * from './application-cleanup'
 export * from './application-dependencies'
 export * from './application-generate-project'
 export * from './application-substitutions'

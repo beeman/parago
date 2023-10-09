@@ -8,11 +8,9 @@ export function walletAdapterDependencies(tree: Tree) {
       '@solana/wallet-adapter-base': packageVersion['@solana']['wallet-adapter-base'],
       '@solana/wallet-adapter-react': packageVersion['@solana']['wallet-adapter-react'],
       '@solana/wallet-adapter-react-ui': packageVersion['@solana']['wallet-adapter-react-ui'],
-      '@solana/wallet-adapter-wallets': packageVersion['@solana']['wallet-adapter-wallets'],
+      '@solana/wallet-adapter-solflare': packageVersion['@solana']['wallet-adapter-solflare'],
+      '@solana/wallet-adapter-unsafe-burner': packageVersion['@solana']['wallet-adapter-unsafe-burner'],
     },
-    {
-      'crypto-browserify': packageVersion['crypto-browserify'],
-      'stream-browserify': packageVersion['stream-browserify'],
-    },
+    {},
   )
 }

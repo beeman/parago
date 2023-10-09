@@ -44,7 +44,11 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/starter-anchor/**/*.ts", "packages/starter-anchor/package.json"]
+        "lintFilePatterns": [
+          "packages/starter-anchor/**/*.ts",
+          "packages/starter-anchor/package.json",
+          "packages/starter-anchor/generators.json"
+        ]
       }
     },
     "test": {

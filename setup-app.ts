@@ -27,12 +27,19 @@ async function main() {
   const tempDir = createTempDir(appName)
   console.log(`Created temp dir at ${tempDir}`)
   createNxWorkspace(tempDir)
-  const preset = `@parago/starter-react`
 
-  console.log(`Adding preset ${preset}`)
-  execSync(`yarn add ${preset}`, { stdio: 'inherit', cwd: tempDir })
-  console.log(`Create app ${preset}:application web`)
-  execSync(`nx generate ${preset}:application web --ui-library tailwind`, { stdio: 'inherit', cwd: tempDir })
+  const frontend = `@parago/starter-react`
+  const anchor = '@parago/starter-anchor'
+
+  console.log(`Adding preset ${frontend} and ${anchor}`)
+  execSync(`yarn add ${frontend} ${anchor}`, { stdio: 'inherit', cwd: tempDir })
+  console.log(`Create app ${frontend}:application web`)
+  execSync(`yarn nx generate ${frontend}:application web --ui-library tailwind`, { stdio: 'inherit', cwd: tempDir })
+  console.log(`Create app ${anchor}:application anchor --programName my-anchor-app`)
+  execSync(`yarn nx generate ${anchor}:application anchor --programName my-anchor-app`, {
+    stdio: 'inherit',
+    cwd: tempDir,
+  })
   console.log(`Running yarn install`)
   execSync(`yarn install`, { stdio: 'inherit', cwd: tempDir })
   console.log(`Check your app at ${tempDir}`)

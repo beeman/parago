@@ -18,7 +18,7 @@ async function main() {
   const { directory } = await createWorkspace(`@parago/starter-common@${presetVersion}`, {
     name,
     nxCloud: false,
-    packageManager: 'npm',
+    packageManager: 'yarn',
   })
 
   console.log(`Successfully created the workspace: ${directory}.`)

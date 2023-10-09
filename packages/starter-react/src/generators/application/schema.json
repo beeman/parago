@@ -12,13 +12,6 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
-    },
-    "ui-library": {
-      "type": "string",
-      "description": "",
-      "enum": ["tailwind"],
-      "default": "tailwind",
-      "x-prompt": "Which UI library would you like to use?"
     }
   },
   "required": ["name"]

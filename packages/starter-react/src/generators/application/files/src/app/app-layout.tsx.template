@@ -1,0 +1,33 @@
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+
+export function AppLayout({ children }: { children: ReactNode }) {
+  const pages = [
+    { label: 'Page 1', path: 'page-1' },
+    { label: 'Page 2', path: 'page-2' },
+  ];
+
+  return (
+    <div>
+      <div className="navbar bg-neutral text-neutral-content">
+        <div className="flex-1">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            <%= packageName %>@<%= packageVersion %>
+          </Link>
+          <ul className="menu menu-horizontal px-1">
+            {pages.map(({ label, path }) => (
+            <li key={path}>
+              <Link to={path}>{label}</Link>
+            </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex-none">
+          <WalletMultiButton />
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+}

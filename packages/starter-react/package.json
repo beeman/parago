@@ -2,6 +2,7 @@
   "name": "@parago/starter-react",
   "version": "0.0.1",
   "dependencies": {
+    "@parago/starter-common": "*",
     "@nx/devkit": "16.10.0",
     "@nx/linter": "16.10.0",
     "@nx/react": "^16.10.0",

@@ -1,28 +1,13 @@
-import { Link } from 'react-router-dom';
+import { AppLayout } from './app-layout';
 import { AppRoutes } from './app-routes';
+import { SolanaProvider } from './solana-provider';
 
 export function App() {
-  const pages = [
-    { label: 'Page 1', path: 'page-1' },
-    { label: 'Page 2', path: 'page-2' },
-  ];
-  return (
-    <div>
-      <div className="navbar bg-primary text-primary-content">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <%= packageName %>@<%= packageVersion %>
-        </Link>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            {pages.map(({ label, path }) => (
-              <li key={path}>
-                <Link to={path}>{label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <AppRoutes />
-    </div>
-  );
+return (
+<SolanaProvider>
+  <AppLayout>
+    <AppRoutes />
+  </AppLayout>
+</SolanaProvider>
+);
 }

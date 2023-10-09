@@ -3777,6 +3777,20 @@ create-jest@^29.7.0:
     jest-util "^29.7.0"
     prompts "^2.0.1"
 
+create-nx-workspace@16.10.0:
+  version "16.10.0"
+  resolved "http://localhost:4873/create-nx-workspace/-/create-nx-workspace-16.10.0.tgz#0c4341283a32985441b69e7af9e4f079c0559c2d"
+  integrity sha512-bwQQ0htBdVxOybwywcqMFovfcwQ12JnMIrGRNd/9/aaT+LMwhwfUaZ6MFG9zk4uh6z9fn9wzxPeMxH1Xh6+42A==
+  dependencies:
+    axios "^1.0.0"
+    chalk "^4.1.0"
+    enquirer "~2.3.6"
+    flat "^5.0.2"
+    ora "5.3.0"
+    tmp "~0.2.1"
+    tslib "^2.3.0"
+    yargs "^17.6.2"
+
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"

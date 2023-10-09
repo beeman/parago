@@ -44,7 +44,11 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/starter-common/**/*.ts", "packages/starter-common/package.json"]
+        "lintFilePatterns": [
+          "packages/starter-common/**/*.ts",
+          "packages/starter-common/package.json",
+          "packages/starter-common/generators.json"
+        ]
       }
     },
     "test": {

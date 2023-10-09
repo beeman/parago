@@ -1,0 +1,46 @@
+{
+  "name": "create-parago-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/create-parago-app/bin",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/create-parago-app",
+        "main": "packages/create-parago-app/bin/index.ts",
+        "tsConfig": "packages/create-parago-app/tsconfig.lib.json",
+        "assets": ["packages/create-parago-app/*.md"],
+        "updateBuildableProjectDepsInPackageJson": false
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs create-parago-app {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/create-parago-app/**/*.ts", "packages/create-parago-app/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/create-parago-app/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["starter-common"]
+}

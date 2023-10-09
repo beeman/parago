@@ -1,35 +1,35 @@
 {
-  "name": "starter-react",
+  "name": "starter-common",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/starter-react/src",
+  "sourceRoot": "packages/starter-common/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/starter-react",
-        "main": "packages/starter-react/src/index.ts",
-        "tsConfig": "packages/starter-react/tsconfig.lib.json",
+        "outputPath": "dist/packages/starter-common",
+        "main": "packages/starter-common/src/index.ts",
+        "tsConfig": "packages/starter-common/tsconfig.lib.json",
         "assets": [
-          "packages/starter-react/*.md",
+          "packages/starter-common/*.md",
           {
-            "input": "./packages/starter-react/src",
+            "input": "./packages/starter-common/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./packages/starter-react/src",
+            "input": "./packages/starter-common/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./packages/starter-react",
+            "input": "./packages/starter-common",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./packages/starter-react",
+            "input": "./packages/starter-common",
             "glob": "executors.json",
             "output": "."
           }
@@ -37,25 +37,21 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs starter-react {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs starter-common {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/starter-react/**/*.ts",
-          "packages/starter-react/package.json",
-          "packages/starter-react/generators.json"
-        ]
+        "lintFilePatterns": ["packages/starter-common/**/*.ts", "packages/starter-common/package.json"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/starter-react/jest.config.ts",
+        "jestConfig": "packages/starter-common/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

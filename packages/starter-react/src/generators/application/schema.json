@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Application",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "ui-library": {
+      "type": "string",
+      "description": "",
+      "enum": ["tailwind"],
+      "default": "tailwind",
+      "x-prompt": "Which UI library would you like to use?"
+    }
+  },
+  "required": ["name"]
+}

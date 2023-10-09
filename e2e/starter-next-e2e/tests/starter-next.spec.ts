@@ -2,7 +2,7 @@ import { execSync } from 'child_process'
 import { join, dirname } from 'path'
 import { mkdirSync, rmSync } from 'fs'
 
-describe('starter-react', () => {
+describe('starter-next', () => {
   let projectDirectory: string
 
   beforeAll(() => {
@@ -10,7 +10,7 @@ describe('starter-react', () => {
 
     // The plugin has been built and published to a local registry in the jest globalSetup
     // Install the plugin built with the latest source code into the test repo
-    execSync(`npm install @parago/starter-react@e2e`, {
+    execSync(`npm install @parago/starter-next@e2e`, {
       cwd: projectDirectory,
       stdio: 'inherit',
       env: process.env,
@@ -27,19 +27,7 @@ describe('starter-react', () => {
 
   it('should be installed', () => {
     // npm ls will fail if the package is not installed properly
-    execSync('npm ls @parago/starter-react', {
-      cwd: projectDirectory,
-      stdio: 'inherit',
-    })
-  })
-
-  it('should generate a starter-react application', () => {
-    execSync('nx generate @parago/starter-react:application test-app', {
-      cwd: projectDirectory,
-      stdio: 'inherit',
-    })
-    // Project should build without errors
-    execSync('nx build test-app', {
+    execSync('npm ls @parago/starter-next', {
       cwd: projectDirectory,
       stdio: 'inherit',
     })

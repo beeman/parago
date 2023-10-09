@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@parago/starter-common": ["packages/starter-common/src/index.ts"],
+      "@parago/starter-next": ["packages/starter-next/src/index.ts"],
       "@parago/starter-react": ["packages/starter-react/src/index.ts"]
     }
   },

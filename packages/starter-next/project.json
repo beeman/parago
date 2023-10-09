@@ -1,35 +1,35 @@
 {
-  "name": "starter-react",
+  "name": "starter-next",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/starter-react/src",
+  "sourceRoot": "packages/starter-next/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/starter-react",
-        "main": "packages/starter-react/src/index.ts",
-        "tsConfig": "packages/starter-react/tsconfig.lib.json",
+        "outputPath": "dist/packages/starter-next",
+        "main": "packages/starter-next/src/index.ts",
+        "tsConfig": "packages/starter-next/tsconfig.lib.json",
         "assets": [
-          "packages/starter-react/*.md",
+          "packages/starter-next/*.md",
           {
-            "input": "./packages/starter-react/src",
+            "input": "./packages/starter-next/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./packages/starter-react/src",
+            "input": "./packages/starter-next/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./packages/starter-react",
+            "input": "./packages/starter-next",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./packages/starter-react",
+            "input": "./packages/starter-next",
             "glob": "executors.json",
             "output": "."
           }
@@ -37,7 +37,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs starter-react {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs starter-next {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
@@ -45,9 +45,9 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/starter-react/**/*.ts",
-          "packages/starter-react/package.json",
-          "packages/starter-react/generators.json"
+          "packages/starter-next/**/*.ts",
+          "packages/starter-next/package.json",
+          "packages/starter-next/generators.json"
         ]
       }
     },
@@ -55,7 +55,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/starter-react/jest.config.ts",
+        "jestConfig": "packages/starter-next/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

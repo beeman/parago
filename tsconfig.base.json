@@ -11,27 +11,16 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@parago/starter-common": [
-        "packages/starter-common/src/index.ts"
-      ],
-      "@parago/starter-next": [
-        "packages/starter-next/src/index.ts"
-      ],
-      "@parago/starter-react": [
-        "packages/starter-react/src/index.ts"
-      ]
+      "@parago/starter-anchor": ["packages/starter-anchor/src/index.ts"],
+      "@parago/starter-common": ["packages/starter-common/src/index.ts"],
+      "@parago/starter-next": ["packages/starter-next/src/index.ts"],
+      "@parago/starter-react": ["packages/starter-react/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

@@ -16,7 +16,7 @@ export async function applicationGenerator(tree: Tree, options: ApplicationGener
   // Clean up the default project files.
   applicationCleanup(tree, join(project.sourceRoot, 'app'))
   // Generate the files from the templates.
-  generateFiles(tree, join(__dirname, 'files'), '.', applicationSubstitutions(options))
+  generateFiles(tree, join(__dirname, 'files'), project.root, applicationSubstitutions(options))
   // Add the dependencies for the base application.
   applicationDependencies(tree)
   // Add the dependencies for the wallet adapter.

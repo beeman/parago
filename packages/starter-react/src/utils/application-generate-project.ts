@@ -15,7 +15,7 @@ export async function applicationGenerateProject(tree: Tree, options: { name: st
     classComponent: false,
     routing: true,
     strict: true,
-    rootProject: true,
+    rootProject: false,
     bundler: 'webpack',
   })
 

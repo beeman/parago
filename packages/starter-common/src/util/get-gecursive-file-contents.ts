@@ -3,17 +3,22 @@ import { Tree } from '@nx/devkit'
 export interface FileContents {
   path: string
   content?: string
+  isBinary?: boolean
   children?: Record<string, FileContents>
 }
+
+const binaries = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'ico', 'woff', 'woff2', 'ttf', 'eot', 'pdf']
 
 export function getRecursiveFileContents(tree: Tree, path: string) {
   const contents: Record<string, FileContents> = {}
   const dir = tree.children(path)
   dir.forEach((file) => {
     if (tree.isFile(`${path}/${file}`)) {
+      const isBinary = binaries.includes(file.split('.').pop())
       contents[file] = {
         path: `${path}/${file}`,
-        content: tree.read(`${path}/${file}`).toString(),
+        isBinary,
+        content: tree.read(`${path}/${file}`).toString(isBinary ? 'base64' : 'utf-8'),
       }
     } else {
       contents[file] = {

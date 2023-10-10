@@ -33,8 +33,8 @@ async function main() {
 
   console.log(`Adding preset ${frontend} and ${anchor}`)
   execSync(`yarn add ${frontend} ${anchor}`, { stdio: 'inherit', cwd: tempDir })
-  console.log(`Create app ${frontend}:application web`)
-  execSync(`yarn nx generate ${frontend}:application web --ui-library tailwind`, { stdio: 'inherit', cwd: tempDir })
+  console.log(`Create app ${frontend}:application app`)
+  execSync(`yarn nx generate ${frontend}:application app --ui-library tailwind`, { stdio: 'inherit', cwd: tempDir })
   console.log(`Create app ${anchor}:application anchor --programName my-anchor-app`)
   execSync(`yarn nx generate ${anchor}:application anchor --programName my-anchor-app`, {
     stdio: 'inherit',

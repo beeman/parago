@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "16.10.0",
-    "@nx/jest": "16.10.0",
     "@parago/starter-common": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@nx/js": "16.10.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",

@@ -1,9 +1,12 @@
 {
   "name": "create-parago-app",
   "version": "0.0.1",
+  "description": "Create a Parago app",
   "dependencies": {
     "create-nx-workspace": "16.10.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "consola": "^3.2.3",
+    "process": "0.11.10"
   },
   "type": "commonjs",
   "main": "./src/index.js",

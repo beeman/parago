@@ -1,27 +1,58 @@
 #!/usr/bin/env node
-
+import { consola } from 'consola'
 import { createWorkspace } from 'create-nx-workspace'
+import * as process from 'process'
+
+// This assumes "@parago/starter-common" and "create-parago-app" are at the same version
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const packageJson = require('../package.json')
+const meta = {
+  name: packageJson.name,
+  version: packageJson.version,
+}
 
 async function main() {
-  const name = process.argv[2] // TODO: use libraries like yargs or enquirer to set your workspace name
-  if (!name) {
-    throw new Error('Please provide a name for the workspace')
+  consola.info(`${meta.name} v${meta.version}`)
+  const name = await consola.prompt('Enter project name', {
+    placeholder: 'Enter your name',
+    initial: process.argv[2],
+  })
+
+  const preset = await consola.prompt('Pick a project type.', {
+    type: 'select',
+    options: [
+      { label: 'React', value: '@parago/starter-react', hint: 'React SPA with react-router-dom' },
+      { label: 'Next.js', value: '@parago/starter-next', hint: 'Next.js with file-system routing' },
+    ],
+  })
+  consola.box({
+    title: 'Project summary',
+    message: [`Name   → \`${name}\``, `Preset → \`${preset}\``].join('\n'),
+    style: {
+      padding: 1,
+      borderColor: 'magenta',
+      borderStyle: 'rounded',
+    },
+  })
+
+  const res = await consola.prompt('Do you want to continue?', {
+    type: 'confirm',
+    initial: true,
+  })
+  if (!res) {
+    consola.warn('Generation cancelled')
+    return
   }
 
-  console.log(`Creating the workspace: ${name}`)
+  const presetPackage = `${preset}@${meta.version}`
+  consola.start(`Creating the workspace: ${name} with preset ${presetPackage}`)
 
-  // This assumes "@parago/starter-common" and "create-parago-app" are at the same version
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const presetVersion = require('../package.json').version
-
-  // TODO: update below to customize the workspace
-  const { directory } = await createWorkspace(`@parago/starter-common@${presetVersion}`, {
+  const { directory } = await createWorkspace(presetPackage, {
     name,
     nxCloud: false,
     packageManager: 'yarn',
   })
-
-  console.log(`Successfully created the workspace: ${directory}.`)
+  consola.success(`Successfully created the workspace: ${directory}.`)
 }
 
 main()

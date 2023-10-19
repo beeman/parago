@@ -1,8 +1,8 @@
 {
   "generators": {
     "application": {
-      "factory": "./src/generators/application/generator",
-      "schema": "./src/generators/application/schema.json",
+      "factory": "./src/generators/application/react-application-generator",
+      "schema": "./src/generators/application/react-application-schema.json",
       "description": "application generator",
       "aliases": ["preset"]
     }

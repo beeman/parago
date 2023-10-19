@@ -5,6 +5,7 @@ export function updateIgnoreEntries(tree: Tree, file: string, paths: string[]) {
   if (ignoreFile) {
     const entries = ignoreFile.toString().split('\n')
     const newEntries = entries.concat(paths)
-    tree.write(file, newEntries.join('\n'))
+    const uniqueEntries = new Set(newEntries)
+    tree.write(file, Array.from(uniqueEntries).join('\n'))
   }
 }

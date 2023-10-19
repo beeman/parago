@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@nx/devkit": "16.10.0",
+    "@nx/next": "^16.10.0",
     "@swc/helpers": "~0.5.2",
     "consola": "^3.2.3",
     "create-nx-workspace": "16.10.0",

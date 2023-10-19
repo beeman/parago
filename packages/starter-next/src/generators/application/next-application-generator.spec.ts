@@ -1,8 +1,8 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
 import { Tree, readProjectConfiguration } from '@nx/devkit'
 
-import { applicationGenerator } from './generator'
-import { ApplicationGeneratorSchema } from './schema'
+import { applicationGenerator } from './next-application-generator'
+import { ApplicationGeneratorSchema } from './next-application-schema'
 
 describe('application generator', () => {
   let tree: Tree

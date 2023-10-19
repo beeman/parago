@@ -3,10 +3,10 @@ import { libraryGenerator } from '@nx/js'
 import { applicationCleanup, runCommand } from '@parago/starter-common'
 import * as path from 'path'
 import { join } from 'path'
-import { addAnchorIgnoreFields, applicationDependenciesAnchor } from '../../utils'
-import { ApplicationGeneratorSchema } from './schema'
+import { addAnchorIgnoreFields, anchorApplicationDependencies } from '../../utils'
+import { ApplicationGeneratorSchema } from './anchor-application-schema'
 
-export async function applicationGenerator(tree: Tree, options: ApplicationGeneratorSchema) {
+export async function anchorApplicationGenerator(tree: Tree, options: ApplicationGeneratorSchema) {
   await libraryGenerator(tree, {
     name: options.name,
     bundler: 'rollup',
@@ -40,10 +40,10 @@ export async function applicationGenerator(tree: Tree, options: ApplicationGener
     ...substitutions,
     fileNameUnderscore: substitutions.fileName.replace(/-/g, '_'),
   })
-  applicationDependenciesAnchor(tree)
+  anchorApplicationDependencies(tree)
   addAnchorIgnoreFields(tree)
 
   await formatFiles(tree)
 }
 
-export default applicationGenerator
+export default anchorApplicationGenerator

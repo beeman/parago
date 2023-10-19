@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "16.10.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@parago/starter-react": "*",
+    "@nx/linter": "16.10.0",
+    "@nx/next": "^16.10.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",

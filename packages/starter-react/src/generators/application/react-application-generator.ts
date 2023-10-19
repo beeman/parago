@@ -8,9 +8,9 @@ import {
   applicationTailwindConfig,
   walletAdapterDependencies,
 } from '../../utils'
-import { ApplicationGeneratorSchema } from './schema'
+import { ReactApplicationSchema } from './react-application-schema'
 
-export async function applicationGenerator(tree: Tree, options: ApplicationGeneratorSchema) {
+export async function applicationGenerator(tree: Tree, options: ReactApplicationSchema) {
   // Set up the base project.
   const project = await applicationGenerateProject(tree, options)
   // Clean up the default project files.

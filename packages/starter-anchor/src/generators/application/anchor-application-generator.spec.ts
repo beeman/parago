@@ -1,26 +1,26 @@
+import { getProjects, readProjectConfiguration, Tree } from '@nx/devkit'
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing'
-import { Tree, readProjectConfiguration } from '@nx/devkit'
 import { getRecursiveFileContents } from '@parago/starter-common'
 
-import { applicationGenerator } from './generator'
-import { ApplicationGeneratorSchema } from './schema'
+import { anchorApplicationGenerator } from './anchor-application-generator'
+import { ApplicationGeneratorSchema } from './anchor-application-schema'
 
 describe('application generator', () => {
   let tree: Tree
-  const options: ApplicationGeneratorSchema = { name: 'test' }
+  const options: ApplicationGeneratorSchema = { name: 'anchor', programName: 'my-test-program' }
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()
   })
 
   it('should run successfully', async () => {
-    await applicationGenerator(tree, options)
-    const config = readProjectConfiguration(tree, 'test')
+    await anchorApplicationGenerator(tree, options)
+    const config = readProjectConfiguration(tree, options.name)
     expect(config).toBeDefined()
   })
 
   it('should snapshot the generated structure', async () => {
-    await applicationGenerator(tree, options)
+    await anchorApplicationGenerator(tree, options)
 
     const config = readProjectConfiguration(tree, options.name)
     const contents = getRecursiveFileContents(tree, config.root)

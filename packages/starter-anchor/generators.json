@@ -1,9 +1,10 @@
 {
   "generators": {
     "application": {
-      "factory": "./src/generators/application/generator",
-      "schema": "./src/generators/application/schema.json",
-      "description": "application generator"
+      "factory": "./src/generators/application/anchor-application-generator",
+      "schema": "./src/generators/application/anchor-application-schema.json",
+      "description": "application generator",
+      "aliases": ["preset"]
     }
   }
 }

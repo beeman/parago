@@ -1,3 +1,4 @@
+import { IDL } from '@<%= npmScope %>/anchor';
 import { useRoutes } from 'react-router-dom';
 import { Airdrop } from './pages/airdrop';
 import { Page1 } from './pages/page-1';
@@ -8,7 +9,7 @@ export function AppRoutes() {
     {
       index: true,
       path: '/',
-      element: <div>This is the home page.</div>,
+      element: <pre>{JSON.stringify(IDL, null, 2)}</pre>,
     },
     { path: '/airdrop', element: <Airdrop /> },
     { path: '/page-1', element: <Page1 /> },

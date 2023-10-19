@@ -3,11 +3,11 @@ import { Tree, readProjectConfiguration } from '@nx/devkit'
 import { getRecursiveFileContents } from '@parago/starter-common'
 
 import { applicationGenerator } from './react-application-generator'
-import { ApplicationGeneratorSchema } from './react-application-schema'
+import { ReactApplicationSchema } from './react-application-schema'
 
 describe('application generator', () => {
   let tree: Tree
-  const options: ApplicationGeneratorSchema = { name: 'test' }
+  const options: ReactApplicationSchema = { name: 'test' }
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace()

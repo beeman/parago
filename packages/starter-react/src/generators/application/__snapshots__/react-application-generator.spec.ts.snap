@@ -21,7 +21,7 @@ exports[`application generator should snapshot the generated structure 1`] = `
           "app-routes.tsx": {
             "path": "test/src/app/app-routes.tsx",
             "isBinary": false,
-            "content": "import { useRoutes } from 'react-router-dom';\\nimport { Airdrop } from './pages/airdrop';\\nimport { Page1 } from './pages/page-1';\\nimport { Page2 } from './pages/page-2';\\n\\nexport function AppRoutes() {\\n  return useRoutes([\\n    {\\n      index: true,\\n      path: '/',\\n      element: <div>This is the home page.</div>,\\n    },\\n    { path: '/airdrop', element: <Airdrop /> },\\n    { path: '/page-1', element: <Page1 /> },\\n    { path: '/page-2', element: <Page2 /> },\\n  ]);\\n}\\n"
+            "content": "import { IDL } from '@proj/anchor';\\nimport { useRoutes } from 'react-router-dom';\\nimport { Airdrop } from './pages/airdrop';\\nimport { Page1 } from './pages/page-1';\\nimport { Page2 } from './pages/page-2';\\n\\nexport function AppRoutes() {\\n  return useRoutes([\\n    {\\n      index: true,\\n      path: '/',\\n      element: <pre>{JSON.stringify(IDL, null, 2)}</pre>,\\n    },\\n    { path: '/airdrop', element: <Airdrop /> },\\n    { path: '/page-1', element: <Page1 /> },\\n    { path: '/page-2', element: <Page2 /> },\\n  ]);\\n}\\n"
           },
           "pages": {
             "path": "test/src/app/pages",
